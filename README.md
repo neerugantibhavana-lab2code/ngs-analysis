@@ -22,15 +22,15 @@ top of each script.
 ### Why Python for some pipelines and R for others?
 
 Tools like Bowtie2, samtools, GATK, MACS2, HOMER, bedtools, MEME, QIIME2, and
-Bismark are standalone command-line programs — there's no R or Python package
+Bismark are standalone command-line programs, there's no R or Python package
 that reimplements them, so any script that runs them is just calling out to
 the same binaries. Rather than raw shell scripts, those pipelines are written
-in **Python**, using the `subprocess` module to call each tool — this keeps
+in **Python**, using the `subprocess` module to call each tool, this keeps
 the orchestration logic readable, testable, and easy to extend (e.g. adding
 loops, config files, logging) compared to bash.
 
-The statistics-heavy steps (differential expression, splice graph analysis)
-use Bioconductor packages — `limma`, `edgeR`, `SGSeq` — that only exist in
+The statistics, heavy steps (differential expression, splice graph analysis)
+use Bioconductor packages: `limma`, `edgeR`, `SGSeq`, that only exist in
 **R**. There's no equivalent Python library that reproduces the same
 statistical methods, so those stay in R rather than being awkwardly
 reimplemented.
