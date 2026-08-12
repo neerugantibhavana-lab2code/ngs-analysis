@@ -1,6 +1,6 @@
 # NGS Analysis Pipelines
 
-This repository contains bioinformatics workflows and analysis pipelines developed as part of my M.Sc. Biotechnology & Bioinformatics coursework and academic projects at the Institute of Bioinformatics and Applied Biotechnology (IBAB), Bengaluru. The repository includes reproducible pipelines for genomics, transcriptomics, epigenomics, metagenomics, and sequence analysis using Python, R, and widely used bioinformatics tools.
+This repository contains bioinformatics workflows and analysis pipelines developed as part of my M.Sc. Biotechnology & Bioinformatics coursework and academic projects at the Institute of Bioinformatics and Applied Biotechnology (IBAB), Bengaluru. The repository includes reproducible pipelines for genomics, transcriptomics, epigenomics, metagenomics, and sequence analysis using R, and widely used bioinformatics tools.
 
 ## Contents
 
