@@ -1,67 +1,182 @@
 # NGS Analysis & Bioinformatics Coursework
 
-This repository contains bioinformatics analysis workflows and practical exercises completed as part of my **M.Sc. Biotechnology & Bioinformatics coursework at the Institute of Bioinformatics and Applied Biotechnology (IBAB), Bengaluru**.
-
-The work covers different areas of genomics, transcriptomics, epigenomics, metagenomics, and sequence data analysis. These projects were carried out to gain practical experience with commonly used bioinformatics tools and to understand the major steps involved in NGS data analysis.
+A collection of NGS and bioinformatics analysis workflows completed as part of my M.Sc. Biotechnology and Bioinformatics coursework at the Institute of Bioinformatics and Applied Biotechnology (IBAB).
+The repository contains practical analyses of sequencing and genomic data analysis workflows, including transcriptomics, genome assembly, variant analysis, ChIP-seq, metagenomics, bisulfite sequencing, and microarray analysis.
 
 ## Analyses Included
 
-| Analysis | What I Practiced | Tools |
-|---|---|---|
-| **Microarray Analysis** | Differential gene expression analysis | R, `oligo`, `limma` |
-| **RNA-seq Analysis** | Read alignment, read quantification and differential expression analysis | Bowtie2, Rsubread, edgeR |
-| **Alternative Splicing** | Splice-aware alignment and analysis of splice junctions | HISAT2, SGSeq |
-| **Genome Assembly** | De novo assembly, assembly quality assessment and gene prediction | Velvet, QUAST, Augustus, RagTag, BUSCO |
-| **Variant Calling** | Identification of SNPs and small insertions/deletions from sequencing data | BWA-MEM, Picard, GATK |
-| **ChIP-seq Analysis** | Read alignment, peak calling and downstream analysis | Bowtie2, MACS2, HOMER, BEDTools, MEME |
-| **QIIME2 / Metagenomics** | 16S amplicon sequencing and microbial community analysis | QIIME 2 |
-| **Bisulfite Sequencing** | Analysis of DNA methylation sequencing data | Bismark, Bowtie2, samtools |
+| Analysis | Tools / Methods |
+|---|---|
+| RNA-seq Analysis | FastQC, Trimmomatic, Bowtie2, SAMtools, featureCounts/Rsubread, edgeR |
+| Alternative Splicing | HISAT2, SAMtools, SGSeq |
+| Microarray Analysis | R, oligo, RMA, limma |
+| Genome Assembly | Velvet, Canu, QUAST, Augustus, gffread, RagTag, BUSCO |
+| Variant Calling & Annotation | BWA-MEM, SAMtools, Picard, GATK, IGV, Ensembl VEP |
+| ChIP-seq Analysis | SRA Toolkit, FastQC, Bowtie2, SAMtools, MACS2, IGV, HOMER, BEDTools, MEME |
+| Bisulfite Sequencing | Bismark, Bowtie2, SAMtools |
+| Metagenomics | QIIME 2 |
 
-## General Workflow
+## RNA-seq Analysis
 
-Depending on the analysis, the practical workflows involved steps such as:
+The RNA-seq workflow covers processing of raw sequencing reads through differential expression analysis.
 
-**Raw sequencing data → Quality assessment → Pre-processing → Alignment / Assembly → Quantification or Variant/Peak Analysis → Statistical or Downstream Analysis → Interpretation**
+### Workflow
 
-The exact steps and tools vary between projects.
+- Quality assessment of raw FASTQ reads using **FastQC**
+- Read trimming using **Trimmomatic**
+- Reference genome indexing and read alignment using **Bowtie2**
+- Alignment file processing using **SAMtools**
+- Generation of gene-level counts using **featureCounts/Rsubread**
+- Read-count normalization and filtering
+- Differential gene expression analysis using **edgeR**
+- Generation and interpretation of differential expression plots
+
+## Alternative Splicing Analysis
+
+- Quality assessment of RNA-seq reads
+- Splice-aware alignment using **HISAT2**
+- BAM processing using **SAMtools**
+- Transcript feature and splice-event analysis using **SGSeq**
+- Analysis of exon, intron and splice-junction features
+- Visualization of splice features and coverage
+
+## Microarray Analysis
+
+Microarray differential expression analysis was performed using R.
+
+### Workflow
+
+- Microarray data retrieval
+- Processing of Affymetrix CEL files using **oligo**
+- Log transformation and quality assessment
+- RMA normalization
+- Density plots, boxplots and MA plots
+- Experimental design and statistical modeling
+- Differential expression analysis using **limma**
+- Identification of differentially expressed genes
+- Volcano plot generation and interpretation
+
+## De novo Genome Assembly
+
+The genome assembly workflow includes:
+
+- Quality assessment of sequencing reads
+- Read preprocessing
+- De novo assembly using **Velvet** and **Canu**
+- Assembly quality assessment using **QUAST**
+- Gene prediction using **Augustus**
+- Coding sequence extraction using **gffread**
+- Assembly scaffolding/correction using **RagTag**
+- Assembly completeness assessment using **BUSCO**
+
+## Variant Calling & Annotation
+
+The variant analysis workflow includes:
+
+- Read quality assessment
+- Reference genome alignment using **BWA-MEM**
+- BAM processing using **SAMtools**
+- Alignment visualization using **IGV**
+- Duplicate/read-group processing using **Picard**
+- Variant calling using **GATK HaplotypeCaller**
+- Base Quality Score Recalibration
+- Variant filtering
+- Variant annotation using **Ensembl VEP**
+- Interpretation of predicted variant consequences
+
+## ChIP-seq Analysis
+
+The ChIP-seq workflow includes:
+
+- Retrieval of sequencing data using **SRA Toolkit**
+- FASTQ generation and quality assessment
+- Read alignment using **Bowtie2**
+- BAM processing using **SAMtools**
+- Peak calling using **MACS2**
+- Peak visualization using **IGV**
+- Peak annotation using **HOMER**
+- Genomic interval analysis using **BEDTools**
+- DNA motif analysis using **MEME Suite**
+
+## Bisulfite Sequencing
+
+The repository also contains a bisulfite sequencing workflow covering:
+
+- Read preprocessing and quality assessment
+- Bisulfite-aware alignment using **Bismark**
+- Alignment processing using **Bowtie2/SAMtools**
+- Downstream methylation analysis
+
+## Metagenomics
+
+The metagenomics workflow uses **QIIME 2** for processing and analysis of sequencing data.
+
+The workflow covers sequence preprocessing, quality assessment, feature analysis and downstream interpretation of microbial community data.
+
+## Tools & Technologies
+
+### Programming & Scripting
+- R
+- Bash / Linux command line
+- AWK
+
+### NGS & Transcriptomics
+- FastQC
+- Trimmomatic
+- Bowtie2
+- HISAT2
+- SAMtools
+- featureCounts / Rsubread
+- edgeR
+- limma
+- SGSeq
+
+### Genome Assembly
+- Velvet
+- Canu
+- QUAST
+- Augustus
+- gffread
+- RagTag
+- BUSCO
+
+### Variant Analysis
+- BWA-MEM
+- Picard
+- GATK
+- IGV
+- Ensembl VEP
+
+### ChIP-seq
+- SRA Toolkit
+- MACS2
+- HOMER
+- BEDTools
+- MEME Suite
+
+### Microarray
+- R
+- oligo
+- RMA
+- limma
+
+### Other NGS Workflows
+- Bismark
+- QIIME 2
 
 ## Repository Structure
 
-- `RNAseq_Analysis/` – RNA-seq analysis
-- `Alternative_splicing/` – Alternative splicing analysis
-- `microarray_de_analysis.R` – Microarray differential expression analysis
-- `genome_assembly_pipeline.sh` – Genome assembly workflow
-- `variant_calling_pipeline.sh` – Variant calling workflow
-- `chipseq_pipeline.sh` – ChIP-seq workflow
-- `qiime2_pipeline.sh` – QIIME2 / metagenomics workflow
-- `bisulfite_seq_pipeline.sh` – Bisulfite sequencing workflow
-
-## About the Work
-
-These analyses were completed as **academic coursework and practical exercises** during my M.Sc. program.
-
-The purpose of this repository is to document my **hands-on learning and exposure to NGS and bioinformatics analysis workflows**, rather than to present them as production or industry-developed pipelines.
-
-The scripts contain comments and workflow steps that helped me understand how different tools are used together in a typical bioinformatics analysis.
-
-## Skills Practiced
-
-- NGS data analysis
-- Genomics and transcriptomics
-- RNA-seq analysis
-- Differential expression analysis
-- Genome assembly
-- Variant calling
-- ChIP-seq analysis
-- Alternative splicing analysis
-- DNA methylation analysis
-- Metagenomics / 16S analysis
-- R programming
-- Linux / shell scripting
-- Bioinformatics tools and databases
-
-## Note
-
-The scripts were developed and practiced using **course/lab datasets**. File paths, sample names and input data may need to be modified when using the workflows with other datasets.
-
-This repository represents my **coursework-based practical experience and learning in bioinformatics**, and I am continuing to build on these skills through further projects and applications.
+```text
+ngs-analysis/
+│
+├── Alternative_splicing/
+├── RNAseq_Analysis/
+│
+├── bisulfite_seq_pipeline.sh
+├── chipseq_pipeline.sh
+├── genome_assembly_pipeline.sh
+├── microarray_de_analysis.R
+├── qiime2_pipeline.sh
+├── variant_calling_pipeline.sh
+│
+└── README.md
